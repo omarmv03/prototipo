@@ -4,6 +4,7 @@ import { FWKModule } from './fwk/fwk.module';
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,11 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
     BrowserAnimationsModule,
     NoopAnimationsModule,
     MatButtonModule, 
-    MatCheckboxModule
+    MatCheckboxModule,
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyAinZXTXtxFUZnKEB4iQfKWAnU5AKLWxSo",
+      libraries: ["places"]
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
