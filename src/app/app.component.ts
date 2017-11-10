@@ -2,7 +2,8 @@ import { ElementRef, NgZone, OnInit, ViewChild ,Component} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
-
+//http://www.17educations.com/angularjs-2/google-map-directions-display-angular-2/
+//https://medium.com/@pablo_ezequiel/google-maps-and-angular2-aad18640b5ef
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -68,5 +69,10 @@ export class AppComponent {
         this.zoom = 12;
       });
     }
+  }
+
+  placeMarker($event){
+    console.log($event.coords.lat);
+    console.log($event.coords.lng);
   }
 }
