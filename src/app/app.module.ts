@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FWKModule } from './fwk/fwk.module';
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
@@ -14,6 +15,9 @@ import { AgmCoreModule } from '@agm/core';
     BrowserModule,
 	FWKModule,
     BrowserAnimationsModule,
+    FormsModule,
+    FormsModule,
+    ReactiveFormsModule,
     NoopAnimationsModule,
     MatButtonModule, 
     MatCheckboxModule,
