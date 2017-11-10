@@ -1,0 +1,30 @@
+<form  class='component select-control' novalidate>
+    <div class="select">
+        <select [(ngModel)]="value" 
+                id="id"
+                class="form-control"
+                name="id" 
+                [disabled]="disableControl"
+                [required]="requiredControl"
+                (change)="onItemChanges($event.target.value)"
+                (blur)="onTouched($event)">
+                <option [value]="" [disabled]="!defaultEnabled">{{selectText}}</option>
+                <option [value]="option.id" *ngFor="let option of data">
+                    {{option.descripcion}}
+                </option> 
+        </select>
+
+        <!-- Validacion de requerido  -->
+        <span class='error-required' *ngIf="requiredControl">
+            *
+        </span>
+    </div>
+    <div *ngIf="parentGroup.controls[id].invalid && (parentGroup.controls[id].dirty || parentGroup.controls[id].touched)">
+        <span class='error-required'
+            *ngIf="parentGroup.controls[id].errors.required"
+            [hidden]='!parentGroup.controls[id].errors && !parentGroup.controls[id].errors.required && validate'
+            show-tooltip>
+            * Dato obligatorio
+        </span>
+    </div>
+</form>

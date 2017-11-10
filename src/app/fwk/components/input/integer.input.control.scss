@@ -1,0 +1,18 @@
+.integer-input{
+    .content-input{
+        display: grid;
+        border-bottom: 1px solid lightgrey;
+
+        input{
+            border-bottom:none;
+            outline: none;
+        }
+    }
+    .integer{
+        display: flex;
+
+        .error-required{
+            margin-left: 10px;
+        }
+    }
+}

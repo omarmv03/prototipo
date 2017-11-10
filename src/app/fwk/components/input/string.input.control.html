@@ -1,0 +1,43 @@
+﻿<form class='component string-input' novalidate>
+        <div class='content-input'>
+            <input  [(ngModel)]="value"
+                    type="text"
+                    id="id"
+                    name="id"
+                    [attr.maxlength]="maxLength"
+                    [disabled]="disabled"
+                    [required]="requiredControl"
+                    (blur)="onBlurEvent(value)"
+                    (keyup.enter)="onEnterEvent(value)"
+                    (change)="changedInput($event.target.value)" >
+
+                    <!-- Faltan las DIRECTIVES -->
+        </div>
+        <span *ngIf='hasLeyend'class='leyenda'>{{leyend}}</span>
+
+        <!-- Validacion Custom -->
+        <span   class='error-required'
+                *ngIf="customValidationCondition"
+                show-tooltip >
+                {{customValidationMessage}}
+        </span>
+
+        <div *ngIf="parentGroup.controls[id].invalid && (parentGroup.controls[id].dirty || parentGroup.controls[id].touched)">
+            <!-- Validacion de requerido  -->
+            <span class='error-required'
+                *ngIf="parentGroup.controls[id].errors.required"
+                [hidden]='!parentGroup.controls[id].errors && !parentGroup.controls[id].errors.required && validate'
+                show-tooltip>
+                * Dato obligatorio
+            </span>
+
+            <!-- Validacion de maximo -->
+            <span class='error-required'
+                *ngIf='parentGroup.controls[id].errors.maxlength'
+                [hidden]='!parentGroup.controls[id].errors && !parentGroup.controls[id].errors.maxlength && validate'
+                show-tooltip>
+                * El dato debe tener un máximo de {{parentGroup.controls[id].errors.maxlength?.requiredLength}} caracteres.
+            </span>
+        </div>
+
+    </form>

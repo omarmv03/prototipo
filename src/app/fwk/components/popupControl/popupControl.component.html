@@ -1,0 +1,14 @@
+<app-modal class="modal-content" #modal1
+    [display]="show"
+    (onCancel)="handleDismiss()">
+        <div class="app-modal-header">
+            <i class="fa fa-times cancel-circle" aria-hidden="true" (click)="handleDismiss()"></i>
+            <h2 class="modal-title">{{titulo}}</h2>
+        </div>
+        <div class="app-modal-body">
+                <div #dynamicComponentContainer></div>
+        </div>
+        <div class="app-modal-footer" *ngIf="!hiddenButtons">
+            <button type="button" class="btn btn-success" (click)="handleAcept()">Guardar</button>
+        </div>
+</app-modal>

@@ -1,0 +1,23 @@
+<div>
+    <div class="form-group">
+        <div class="col-sm-3 text-right">
+            <label class="control-label">{{labelText}}</label>
+        </div>
+        <div class="col-sm-7">
+            <div *ngIf="!list">
+                <checkboxControl-controller id="{{id}}"
+                                [(ngModel)]="selected"
+                                [deshabilitado]="deshabilitado">
+                </checkboxControl-controller>     
+            </div>
+            <div *ngIf="list">
+                <checkboxOpControl-controller id="{{id}}"
+                                [(ngModel)]="selected"
+                                [deshabilitado]="deshabilitado"
+                                [listaopciones]="list">
+                </checkboxOpControl-controller>     
+            </div>
+        </div>  
+        <div class="col-sm-2"></div>
+    </div>
+</div>

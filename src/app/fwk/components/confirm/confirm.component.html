@@ -1,0 +1,52 @@
+<div class="row barra-confirmacion" data-referencia-autoredimension="formularioGeneral" data-section-botonera-autoajustable>
+        <div class="col-sm-12 botonera">
+
+        <div class="animated fadeInDown">
+
+            <!-- form start -->
+            <form class="form-horizontal">
+                <div class="box-body no-fill" *ngIf="init">
+
+                    <div class="col-sm-2"></div>
+                    <div class="form-group">
+
+                        <div [ngClass]="{'col-sm-2': _textBack && !_textSave && !_textConfirm}"></div>
+
+                        <div [ngClass]="{'col-sm-2': _textBack && _textSave && _textConfirm,
+                                        'col-sm-4': _textBack || _textSave || _textConfirm}">
+                            <button *ngIf="_textBack" [disabled]="_backDisabled" type="button" class="btn btn-danger btn-block" (click)="volver()">
+                                {{_textBack}}
+                            </button>
+                        </div>
+
+                        <div [ngClass]="{'col-sm-2': _textBack && !_textSave && !_textConfirm}"></div>
+                        <!-- -->
+                        <div [ngClass]="{'col-sm-4': _textConfirm}">
+                            <button *ngIf="_textConfirm" [disabled]="_confirmDisabled" type="button" class="btn btn-primary btn-block" (click)="confirmarPropuesta()">
+                                {{_textConfirm}}
+                            </button>
+                        </div>
+                        <!-- -->
+                        <div [ngClass]="{'col-sm-2': !_textBack && _textSave && !_textConfirm}"></div>
+
+                        <div [ngClass]="{'col-sm-2': _textBack && _textSave && _textConfirm,
+                                        'col-sm-4': _textBack || _textSave || _textConfirm}">
+                            <button *ngIf="_textSave" [disabled]="_saveDisabled" type="button" class="btn btn-success btn-block" (click)="guardarPropuesta()">
+                                {{_textSave}}
+                            </button>
+                        </div>
+
+                        <div [ngClass]="{'col-sm-2': !_textBack && _textSave && !_textConfirm}"></div>
+
+                        <div class="col-sm-2"></div>
+                    </div>
+                    <div class="col-sm-1"></div>
+
+                </div>
+                <div class="col-sm-1"></div>
+            </form>
+        </div>
+
+    </div>
+    <!-- /.box-body -->
+</div>

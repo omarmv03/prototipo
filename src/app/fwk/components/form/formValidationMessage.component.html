@@ -1,0 +1,10 @@
+<div class="row">
+    <div  *ngIf="mostrarMensaje()">
+        <div class="col-sm-3 text-right" ></div>
+        <div class="col-sm-9">  
+            <field-error-message [visible]="mostrarDatoRequerido()" [leyenda]="'fwk_lblErrorDatoRequerido'"></field-error-message>
+            <field-error-message [visible]="mostrarMensajeGeneral()" [leyenda]="'fwk_lblErrorTodosRequeridos'"></field-error-message>
+            <field-error-message [visible]="mostrarDatosRequeridos()" [leyenda]="'fwk_lblErrorDatosRequeridos'"></field-error-message>
+        </div>
+    </div>
+</div>

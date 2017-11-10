@@ -1,0 +1,30 @@
+<form class='component' novalidate> 
+    <div class='component'>
+        <textarea [(ngModel)]="value"
+                class="form-control"
+                id="id"
+                name="id"
+                [ngStyle]="style"
+                [disabled]="disabled"
+                [attr.placeholder]="placeholder"
+                [attr.maxLength]="maxLength"></textarea>
+
+        <div *ngIf="parentGroup.controls[id].invalid && (parentGroup.controls[id].dirty || parentGroup.controls[id].touched)">
+            <!-- Validacion de requerido -->
+            <span class='error-required'
+                *ngIf="parentGroup.controls[id].controls.textarea.errors.required"
+                [hidden]='!parentGroup.controls[id].controls.textarea.errors && !parentGroup.controls[id].controls.textarea.errors.required && validate'
+                show-tooltip>
+                * Dato obligatorio
+            </span>
+
+            <!-- Validacion de maxlength -->
+            <span class='error-required'
+                *ngIf='parentGroup.controls[id].controls.textarea.errors.maxlength'
+                [hidden]='!parentGroup.controls[id].controls.textarea.errors && !parentGroup.controls[id].controls.textarea.errors.maxlength && validate'
+                show-tooltip>
+                * El dato debe tener un máximo de {{textareaForm.controls.textarea.errors.maxlength?.requiredLength}} caracteres.
+            </span>
+        </div>
+    </div>
+</form>

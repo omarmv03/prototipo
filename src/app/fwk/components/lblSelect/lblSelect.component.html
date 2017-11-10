@@ -1,0 +1,26 @@
+<div ng-form="labelSelect">
+    <!--<div class="col-sm-1"></div>-->
+    <div class="form-group">
+        <div class="col-sm-3 text-right">
+            <label class="control-label">{{labelText}}</label>
+        </div>
+        <div class="col-sm-6">
+            <selects-control [(ngModel)]="value"     
+                            [parentGroup]="parentGroup"
+                            [id]="id"
+                            [disableControl]="disableControl"
+                            [required]="required"
+                            placeholder="placeholder"
+                            [validate]="validate"
+                            [data]="data"
+                            (onInit)="onInitEvent()"
+                            (onItemChange)="onItemChange($event)"
+                            [selectText]="selectText"
+                            [defaultEnabled]="defaultEnabled"
+                            (onBlur)="onTouched($event)"
+                            name="id">
+            </selects-control>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>

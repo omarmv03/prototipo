@@ -1,0 +1,66 @@
+<form class='component integer-input'>
+    <div class="integer">
+        <div class='content-input'>
+            <input  [(ngModel)]="value"
+                    type="text"
+                    id="id"
+                    [max]="max"
+                    [disabled]="disabled"
+                    [required]="requiredControl"
+                    [attr.maxlength]="maxLength"
+                    (blur)="onBlurEvent(value)"
+                    (keyup.enter)="onEnterEvent(value)"
+                    name="id"
+                    numberIntegerInput>
+
+                    <!-- Faltan las DIRECTIVES -->
+        </div>
+
+        <!-- Validacion de requerido  -->
+        <span class='error-required'*ngIf="requiredControl">
+            *
+        </span>
+    </div>
+
+    <span *ngIf='hasLeyend'class='leyenda'>{{leyend}}</span>
+
+    <!-- Validacion Custom -->
+    <span   class='error-required'
+            *ngIf="customValidationCondition"
+            show-tooltip >
+            {{customValidationMessage}}
+    </span>
+
+    <div *ngIf="parentGroup.controls[id].invalid && (parentGroup.controls[id].dirty || parentGroup.controls[id].touched)">
+        <!-- Validacion de requerido  -->
+        <span class='error-required'
+            *ngIf="parentGroup.controls[id].errors.required"
+            [hidden]='!parentGroup.controls[id].errors && !parentGroup.controls[id].errors.required && validate'
+            show-tooltip>
+            * Dato obligatorio
+        </span>
+
+        <!-- Validacion de maximo -->
+        <span class='error-required'
+            *ngIf='parentGroup.controls[id].errors.maxlength'
+            [hidden]='!parentGroup.controls[id].errors && !parentGroup.controls[id].errors.maxlength && validate'
+            show-tooltip>
+            * El dato debe ser numérico de un máximo de {{input.errors.maxlength?.requiredLength}} dígitos.
+        </span>
+
+        <span class='error-required'
+            *ngIf='parentGroup.controls[id].errors.biggerThanZero'
+            [hidden]='!parentGroup.controls[id].errors && !parentGroup.controls[id].errors.biggerThanZero && validate'
+            show-tooltip>
+            * El dato debe ser numérico y mayor a 0.
+        </span>
+
+        <!-- Validacion de formato correcto numerico. Salta por ejemplo cuando se ingresa mal la notacion cientifica (Ej: 1eee2) -->
+        <!-- <span class='error-required'
+            *ngIf='true'
+            show-tooltip>
+            * Dato numérico no válido.
+        </span> -->
+    </div>
+
+</form>

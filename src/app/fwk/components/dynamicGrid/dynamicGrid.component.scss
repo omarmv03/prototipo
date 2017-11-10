@@ -1,0 +1,187 @@
+.grilla-dinamica tr th{
+    background-color: #004B85;
+    color: white;
+    font-family: 'Roboto';
+    text-align: center;
+    border-right: 2px solid white;
+}
+.grilla-dinamica th td{
+    background-color: #004B85;
+    color: white;
+    font-family: 'Roboto';
+    text-align: center;
+    border-right: 0px;
+}
+.grilla-dinamica{
+    table-layout: fixed;
+    overflow-x:auto;
+    overflow-y:hidden;
+    display: block;
+    width:100%;
+
+    [hidden]{
+        display:none !important;
+    }
+
+    .filtros{
+        padding-top:1px !important;
+        padding-bottom: 1px !important;
+        .filtrosInput{
+            color:darkgray;
+            height: 18px;
+            border: 1px solid #d4d4d4;
+        }
+        .filtrosInput::-webkit-input-placeholder{
+            color:#e2e2e2;
+        }
+
+    }
+
+    thead{
+        width:100%;
+        //display: block;
+        display: table;
+        border-bottom: 1px solid #d4d4d4;
+        box-sizing: border-box;
+        tr {
+            position: relative;
+            //display: initial;
+            height: 20px;
+            margin-top:10px;
+            margin-bottom: 10px;
+            margin-right: 50px;
+            th{
+                border-right: 0px;
+                position: relative;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                
+                div{
+                    display: -webkit-box;
+                    display: -moz-box;
+                    display: -ms-flexbox;
+                    display: -webkit-flex;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor:pointer;
+
+                    span{
+                        position: relative;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        overflow: hidden;
+                    }
+                }
+                .arrow{
+                    margin-left: 10px;
+                }
+                .fa-caret-up::before{
+                    cursor: pointer;
+                }
+
+                .fa-caret-down::before{
+                    cursor: pointer;
+                }
+
+                span.ui-column-resizer {
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    margin: 0;
+                    width: 2px;
+                    height: 100%;
+                    padding: 0;
+                    cursor: col-resize;
+                    //border: 1px solid transparent;
+                    background-color:  white;
+                }
+                span.ui-column-resizer-disable {
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    margin: 0;
+                    width: 2px;
+                    height: 100%;
+                    padding: 0;
+                    background-color:  white;
+                }
+             }
+            td{
+                padding:2px;
+            }
+        }
+    }
+    tbody {
+        width: 100%;
+        display: block;
+        //height:270.75px;
+        height: auto;
+        max-height: 270.75px;
+         tr{
+            //width: 0px;
+            height: 30px;
+            cursor: pointer;
+             td{
+                 padding: 5px;
+                 text-overflow: ellipsis;
+                 white-space: nowrap;
+                 overflow: hidden;
+                 span{
+                     width: 100%;
+                 }
+            }
+        }
+        tr:hover {
+            background-color: #72afd2;
+        }
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+}
+
+.ajust-grilla{
+        text-align: right;
+}
+.seleccionar-columnas{
+    float: right;
+    .btn{
+        border-radius:0 ;
+        color:white;
+        background-color: darkgrey;
+    }
+}
+
+.content-controllers{
+
+    .container-footer{
+        .row-centered {
+            text-align:center;
+            display: inline;
+        }
+        .col-centered {
+            text-align:center;
+            height: 10px;
+        }
+        .col-left {
+            text-align:left;
+        }
+        .col-right {
+            text-align:right;
+        }
+        select{
+            width: 45px;
+            background-color: #EEEEEE;
+        }
+    }
+}
