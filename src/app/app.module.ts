@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule,MatTabsModule,MatMenuModule,MatIconModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -13,8 +13,11 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
     BrowserModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
-    MatButtonModule, 
-    MatCheckboxModule
+    MatButtonModule,
+    MatCheckboxModule,
+    MatTabsModule,
+    MatMenuModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
