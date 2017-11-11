@@ -1,0 +1,13 @@
+<div class ="content-checkbox-op">
+    <div *ngFor="let opcion of listaopciones; let i = index" class="checkbox-op">
+        <input  type="checkbox"
+                name="checkboxControl" 
+                id="{{id}}" 
+                class="squaredTwo"
+                [(ngModel)]="value"
+                [disabled]="deshabilitado"
+                (click)="actualizarOpciones(i)" >
+        <label class="lbl-chk">{{opcion.texto}}</label>
+    </div>
+    <!--<span ng-if="select.checkboxControl.$error.required && $ctrl.validar">* Dato obligatorio</span>-->
+</div>

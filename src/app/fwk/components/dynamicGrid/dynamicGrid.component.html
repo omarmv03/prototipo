@@ -1,0 +1,117 @@
+<div class="row">
+        <div class="col-md-12">
+                <div class="seleccionar-columnas ajust-grilla" *ngIf="config.seleccionadas">
+                    <drop-down  [options]="config.columns"
+                                [items]="config.seleccionadas"
+                                (onCambioSelect)="onCambioColumnasVisibles($event)"
+                                iconClass="fa fa-cog fa-lg">
+                    </drop-down>
+                </div>
+                <div class="content-controllers">
+                    <div class="content-table">
+                        <div class="table-responsive">
+                            <table id="dragtable" class="table grilla-dinamica table-bordered table-striped">
+
+                                <thead>
+                                    <tr><!-- Cabecera -->
+                                        <th *ngFor="let columna of config.columns;let i = index"
+                                            [hidden]="!columna.visible"
+                                            [ngStyle]="columna.css"
+                                            id="column{{i}}">
+
+                                            <div>
+                                                <span (click)="onCambioOrdenEvent($event, columna.name)"
+                                                        [drag]="{colIndex: i}"
+                                                        [drop]="{colIndex: i}"
+                                                        [disableDrag]="disableDrag"
+                                                        (dropObject)="onColumnSortChange($event)">
+                                                    {{columna.title }}
+                                                </span>
+
+
+
+                                                <span class="arrow" *ngFor="let orden of config.dataConfig.order">
+                                                    <i class="fa" [ngClass]="{ 'fa-caret-up': orden.columna == columna.name && orden.asc == true,
+                                                        'fa-caret-down': orden.columna == columna.name && orden.asc == false}"
+                                                        (click)="onCambioOrdenEvent($event,columna.name)"></i>
+                                                </span>
+
+                                            </div>
+                                            <span [ngClass]="{'ui-column-resizer':config.resize,'ui-column-resizer-disable':!config.resize}" (mousedown)="onMouseDown($event)"></span>
+
+                                        </th>
+                                        <!-- <th style="background-color:transparent;visibility:none"></th> -->
+                                        <!--<th style="width: 90px;" *ngIf="puedeBorrar" translate="fwk_colAccionesGrilla" translate-default="Acciones"></th>-->
+                                    </tr>
+                                    <tr *ngIf="config.columns && !config.filtrosDeshabilitados">
+                                        <td *ngFor="let columna of  config.columns"
+                                            [hidden]="!columna.visible"
+                                            [ngStyle]="columna.css"
+                                            class="filtros">
+                                            <input  type="text"
+                                                    *ngIf="columna.filter"
+                                                    placeholder="Buscar..."
+                                                    [(ngModel)]='columna.filter.value'
+                                                    (blur)="onCambioFiltroEvent(columna)"
+                                                    class="filtrosInput">
+                                        </td>
+                                        <td style="background-color:transparent;visibility:none"></td>
+                                    </tr>
+                                </thead>
+                                <tbody *ngIf="filas.length > 0" [ngStyle]="config.css">
+                                    <tr *ngFor="let fila of filas" (click)="selectRow(fila)" [hidden]="!headerVisible"><!-- Fila de datos -->
+                                        <td [hidden]="!columna.visible" [ngStyle]="columna.css" class="{{columna.class}}" *ngFor="let columna of config.columns">
+                                            <span >{{fila[columna.name]}}</span>
+                                            <!--<componente-dinamico ng-if="!!columna.componente"
+                                                                componentes="columna.componente"
+                                                                ng-click="$ctrl.apretoEnCelda(columna.name, fila.id)"
+                                                                valor-inicial="fila[columna.name]"
+                                                                api="$ctrl.apiBloque[columna.name][fila.id]"
+                                                                validar="$ctrl.validar">
+                                            </componente-dinamico>-->
+                                        </td>
+                                        <td style="background-color:transparent;visibility:none"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                               <!-- <table class="grilla-dinamica">
+                                </table> -->
+                    </div>
+                    <div class="container-footer" *ngIf="config.dataConfig.paging">
+                        <div class="row footer row-centered">
+                            <div class="col-sm-4 col-left">
+                                <span>Registro {{config.dataConfig.paging.cantidadAMostrar * config.dataConfig.paging.paginaActual + 1 - config.dataConfig.paging.cantidadAMostrar}} a 
+                                        {{registroHasta}}
+                                        de {{config.dataConfig.paging.totalRegistros}}
+                                </span>
+                            </div>
+                            <div class="col-sm-4 nroPagina col-centered" *ngIf="config.dataConfig.paging.totalRegistros">
+                                <ng-pagination [totalItems]="config.dataConfig.paging.totalPaginas"
+                                        [(ngModel)]="config.dataConfig.paging.paginaActual"
+                                        [pageSize]="1"
+                                        [boundaryLinks]="true"
+                                        (pageChanged)="cambioPaginacion($event)"
+                                        previousText="&lsaquo;"
+                                        nextText="&rsaquo;"
+                                        firstText="&laquo;"
+                                        lastText="&raquo;">
+                                </ng-pagination>
+                            </div>
+                            <div class="col-sm-4 cantidadAMostrar col-right">
+								<form [formGroup]="selectForm" novalidate>
+	                                <span>Por página</span>
+	                                <select [formControlName]="'selectControl'"
+	                                            [(ngModel)]="config.dataConfig.paging.cantidadAMostrar"
+	                                            (change)="cambioRegistrosPorPagina()">
+	                                    <option *ngFor="let option of config.dataConfig.paging.cantidadesPosibles" >
+	                                            {{option}}
+	                                    </option>
+	                                </select>
+								</form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>

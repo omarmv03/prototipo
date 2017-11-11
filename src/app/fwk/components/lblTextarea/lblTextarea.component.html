@@ -1,0 +1,21 @@
+<div ng-form="labelTextarea">
+    <div class="form-group">
+        <div class="col-sm-3 text-right">
+            <label class="control-label">{{labelText}}</label>
+        </div>
+        <div class="col-sm-6">
+            <txtarea-control  [id]="id"
+                            [(ngModel)]="value"
+                            [parentGroup]="parentGroup"
+                            [disabled]="disableControl"
+                            [placeholder]="placeholder"
+                            [maxLength]="maxLength"
+                            [required]="required"
+                            [validate]="validate"
+                            (onChangeComponent)="onChangeTextarea($event)"
+                            [style]="style">
+            </txtarea-control>
+        </div>
+        <div class="col-sm-2"></div>
+    </div> 
+</div>

@@ -1,0 +1,30 @@
+.content-checkbox-op{
+    .squaredTwo {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        -webkit-appearance: none;
+        border: 1px solid darkgrey;
+        background: lightgrey;
+        text-align: center;
+    }
+
+    input[type=checkbox]{
+        margin: 0 15px 10px 0;
+    }
+
+    input[type=checkbox]:checked
+    {
+        background-color: #004B85;
+        box-shadow: inset 0 0 0 2px white;
+    }   
+
+    input[type=checkbox]:hover, input[type=checkbox]:active, input[type=checkbox]:focus{
+        outline:0px !important;
+    }
+
+    .checkbox{
+        display: flex;
+    }
+}
+    

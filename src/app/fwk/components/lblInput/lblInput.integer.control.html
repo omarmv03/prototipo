@@ -1,0 +1,28 @@
+<div ng-form="id">
+    <!--<div class="col-sm-1"></div>-->
+    <div class="form-group">
+        <div class="col-sm-3 text-right">
+            <label class="control-label">{{labelText}}</label>
+        </div>
+        <div class="col-sm-6">
+            <integer-input-control  [id]="id"
+                                    [parentGroup]="parentGroup"
+                                    [disabled]="disableControl"
+                                    [required]="required"
+                                    [validate]="validate"
+                                    [max]="max"
+                                    [maxLength]="maxLength"
+                                    [directives]="directives"
+                                    [customValidationCondition]="customValidationCondition"
+                                    [customValidationMessage]="customValidationMessage"
+                                    [leyend]="leyend"
+                                    [hasLeyend]="hasLeyend"
+                                    [(ngModel)]="value"
+                                    (onBlur)="onBlurEvent($event)"
+                                    (on-enter)="onEnterEvent(value)"
+                                    (onChangeComponent)="onChangeInput($event)">
+            </integer-input-control>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>

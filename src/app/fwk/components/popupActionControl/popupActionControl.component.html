@@ -1,0 +1,22 @@
+<app-modal class="modal-content popup_content card" #modal1 [display]="show" (onCancel)="handleDismiss()">
+    <div class="app-modal-header">
+        <i class="fa fa-times cancel-circle" aria-hidden="true" (click)="handleDismiss()"></i>
+        <h2 class="modal-title title">{{config.title}}</h2>
+    </div>
+    <div class="app-modal-body modal-body popupcontrollers_body row">
+            <div #dynamicComponentContainer></div>
+    </div>
+    <div class="app-modal-footer popup_footer popup-action">
+        <div [ngClass]="{'middleButton':config.cancel && config.accept,'fullButton':config.cancel && !config.accept}"
+            *ngIf="config.cancel" (click)="handleDismiss()">
+            <span>{{config.textButtonCancel}}</span>
+        </div>
+
+        <span *ngIf="config.cancel && config.accept"></span>
+
+        <div [ngClass]="{'middleButton':config.accept && config.cancel,'fullButton':config.accept && !config.cancel}"
+                *ngIf="config.accept" (click)="handleAcept()">
+            <span>{{config.textButtonAccept}}</span>
+        </div>
+    </div>
+</app-modal>

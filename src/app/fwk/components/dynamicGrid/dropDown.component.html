@@ -1,0 +1,26 @@
+<div class='btn-group-dw' [ngClass]='{open: open}'>
+    <div class="ajuste-content">
+        <span class='btn-dw'>Ajustes de columnas</span>
+        <span class='btn-dw dropdown-toggle'  (click)='openDropdown()'>
+            <span class='{{iconClass}}'></span>
+        </span>
+        <ul class='dropdown-menu' aria-labelledby='dropdownMenu' *ngIf="open">
+            <li>
+                <a (click)='selectAll()'>
+                    <span class='fa fa-check' aria-hidden='true'></span> Todos
+                </a>
+            </li>
+            <li>
+                <a (click)='deselectAll()'>
+                    <span class='fa fa-times' aria-hidden='true'></span> Ninguno
+                </a>
+            </li>
+            <li class='divider'></li>
+            <li *ngFor='let option of options'>
+                <a (click)='toggleSelectItem(option)'>
+                    <span [ngClass]='getClassName(option)' aria-hidden='true'></span> {{option.title}}
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

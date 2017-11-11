@@ -1,0 +1,57 @@
+<form class='component'> 
+	<div class="integer">
+		<div class='content-input'>
+			<input  [(ngModel)]="value"
+					type="text"
+					id="id"
+					[disabled]="disabled"
+					[required]="required"
+					[attr.maxlength]="maxLength"
+					(blur)="onBlurEvent(value)"
+					(keyup.enter)="onEnterEvent(value)"
+					name="id">
+					<!-- Faltan las DIRECTIVES -->
+		</div>
+
+		<!-- Validacion de requerido -->
+		<span class='error-required' *ngIf="requiredControl">
+				*
+		</span>
+	</div>
+	
+	<span *ngIf='hasLeyend'class='leyenda'>{{leyend}}</span>
+	
+    <!-- Validacion Custom -->
+    <span   class='error-required'
+            *ngIf="customValidationCondition"
+            show-tooltip >
+            {{customValidationMessage}}
+    </span>
+
+    <div *ngIf="parentGroup.controls[id].invalid && (parentGroup.controls[id].dirty || parentGroup.controls[id].touched)">
+        <!-- Validacion de requerido  -->
+        <span class='error-required'
+            *ngIf="parentGroup.controls[id].errors.required"
+            [hidden]='!parentGroup.controls[id].errors && !parentGroup.controls[id].errors.required && validate'
+            show-tooltip>
+            * Dato obligatorio
+        </span>
+
+        <!-- Validacion de maximo -->
+        <span class='error-required'
+            *ngIf='parentGroup.controls[id].errors.maxlength'
+            [hidden]='!parentGroup.controls[id].errors && !parentGroup.controls[id].errors.maxlength && validate'
+            show-tooltip>
+            * El dato debe ser numérico de un máximo de {{input.errors.maxlength?.requiredLength}} dígitos.
+        </span>
+
+        <span class='error-required'
+            *ngIf='parentGroup.controls[id].errors.biggerThanZero'
+            [hidden]='!parentGroup.controls[id].errors && !parentGroup.controls[id].errors.biggerThanZero && validate'
+            show-tooltip>
+            * El dato debe ser numérico y mayor a 0.
+        </span>
+
+    </div>
+
+</form>

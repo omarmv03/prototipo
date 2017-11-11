@@ -1,0 +1,31 @@
+/*.pagination-component{
+    margin: 0px;
+}
+.pagination-component>.disabled>a{
+    background-color: #d4d4d4;
+}*/
+
+.pagination{
+    .pagination-disabled{
+        opacity: 0.4;
+        cursor:not-allowed;
+    }
+    li{
+        cursor:pointer;
+        a{
+            background: #EEEEEE;
+            margin: 0 2px;
+            height: 25px;
+            width: 25px;
+            padding: 0px;
+            
+        }
+    }
+    .active{
+        a{
+            color: black;
+            border: 1px solid #ddd;
+            width: 35px;
+        }
+    }
+}

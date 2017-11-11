@@ -1,0 +1,19 @@
+.btn-group-dw{
+    float: right;
+    .ajuste-content{
+        border: 1px solid;
+        margin: 10px 0 10px 0;
+        padding: 3px 10px;
+        color: white;
+        background-color: #BEBEBE;    
+        position: relative;
+        cursor: pointer;
+
+        .dropdown-toggle{
+            margin-left: 10px;
+        }
+        .dropdown-menu{
+            display: block;
+        }
+    }
+}
