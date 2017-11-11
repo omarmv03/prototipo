@@ -10,10 +10,7 @@ import { MapsAPILoader } from '@agm/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-<<<<<<< HEAD
   title = 'MOG Desarrollo';
-=======
-  title = 'My First Angular App';
 
   public latitude: number;
   public longitude: number;
@@ -78,5 +75,4 @@ export class AppComponent {
     console.log($event.coords.lat);
     console.log($event.coords.lng);
   }
->>>>>>> fe595f8466abda1a7b08aed7cbf27c3ac8465b4f
 }
